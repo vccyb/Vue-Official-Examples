@@ -1,30 +1,30 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1
+      class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center"
+    >
+      Vue Official Example
+      <span class="text-xl font-light">author: vccyb</span>
+    </h1>
+
+    <div
+      class="container p-0 mt-[50px] border-2 border-gray-500 w-[90%] h-[650px] flex"
+    >
+      <div
+        class="slideBar h-[100%] w-[20%] border-r-2 border-gray-500 min-w-[200px] overflow-y-auto"
+      >
+        <SlideBar />
+      </div>
+      <div class="content flex-1">
+        <Content />
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup>
+import SlideBar from "./components/SlideBar.vue";
+import Content from "./components/Content.vue";
+</script>
+
+<style lang="scss" scoped></style>
