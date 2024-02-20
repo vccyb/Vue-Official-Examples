@@ -20,11 +20,13 @@
       </div>
     </div>
   </div>
+  <Toaster />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SlideBar from "./components/SlideBar.vue";
 import Content from "./components/Content.vue";
+import Toaster from "@/components/ui/toast/Toaster.vue";
 </script>
 
 <style lang="scss" scoped></style>

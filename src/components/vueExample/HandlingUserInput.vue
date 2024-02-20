@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast/use-toast";
 
 const message = ref<string>("Hello Vue3!");
 
@@ -26,8 +27,14 @@ function reverseMessage() {
   message.value = message.value.split("").reverse().join("");
 }
 
+const { toast } = useToast();
 function notify() {
-  alert("navigation was prevented");
+  // alert("navigation was prevented");
+  toast({
+    title: "你点击了",
+    description:
+      "你点击了一个prevent原生事件的a标签,由于vue的阻止，它并不会跳转到别的网址",
+  });
 }
 </script>
 
