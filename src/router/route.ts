@@ -15,6 +15,17 @@ const routes: RouteRecordRaw[] = [
     name: "HandlingUserInput",
     component: () => import("../components/vueExample/HandlingUserInput.vue"),
   },
+  {
+    path: "/basic-3",
+    name: "AttributeBindings",
+    component: () => import("../components/vueExample/AttributeBindings.vue"),
+  },
+  {
+    path: "/basic-4",
+    name: "ConditionalsAndLoops",
+    component: () =>
+      import("../components/vueExample/ConditionalsAndLoops.vue"),
+  },
 ];
 
 export default routes;

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8">
+  <div class="mt-4">
     <h1
       class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center"
     >
@@ -8,7 +8,7 @@
     </h1>
 
     <div
-      class="container p-0 mt-[50px] border-2 border-gray-500 w-[90%] h-[650px] flex"
+      class="container p-0 mt-[50px] border-2 border-gray-500 w-[90vw] h-[80vh] flex min-w-[1200px] min-h-[600px] overflow-hidden"
     >
       <div
         class="slideBar h-[100%] w-[20%] border-r-2 border-gray-500 min-w-[200px] overflow-y-auto"
