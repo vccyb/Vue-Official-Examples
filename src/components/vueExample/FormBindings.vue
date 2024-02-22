@@ -2,37 +2,41 @@
 <template>
   <div class="parent flex flex-col gap-4 justify-center items-center h-[100%] w-[100%] p-4" >
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-indigo-500">  
-      <h2>Text Input</h2>
-      <input v-model="text" class="border-2"> {{ text }}
+      <h2 class="text-2xl font-semibold">Text Input</h2>
+      <Input v-model="text" class="border-2 w-[80%]"/> {{ text }}
       </div>
 
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-y-2 border-indigo-500">  
-      <h2>Checkbox</h2>
+      <h2 class="text-2xl font-semibold">Checkbox</h2>
       <input type="checkbox" id="checkbox" v-model="checked">
       <label for="checkbox">Checked: {{ checked }}</label>
     </div>
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-indigo-500">  
-      <h2>Multi Checkbox</h2>
-      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-      <label for="jack">Jack</label>
-      <input type="checkbox" id="john" value="John" v-model="checkedNames">
-      <label for="john">John</label>
-      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-      <label for="mike">Mike</label>
+      <h2 class="text-2xl font-semibold">Multi Checkbox</h2>
+      <div class="flex">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+      </div>
       <p>Checked names: <pre>{{ checkedNames }}</pre></p>
     </div>
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-indigo-500">  
-      <h2>Radio</h2>
-      <input type="radio" id="one" value="One" v-model="picked">
-      <label for="one">One</label>
-      <br>
-      <input type="radio" id="two" value="Two" v-model="picked">
-      <label for="two">Two</label>
+      <h2 class="text-2xl font-semibold">Radio</h2>
+      <div class="flex">
+        <input class="ml-2" type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <input class="ml-2" type="radio" id="two" value="Two" v-model="picked">
+        <br>
+        <label for="two">Two</label>
+      </div>
       <br>
       <span>Picked: {{ picked }}</span>
     </div>
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-y-2 border-indigo-500">  
-      <h2>Select</h2>
+      <h2 class="text-2xl font-semibold">Select</h2>
       <select v-model="selected">
         <option disabled value="">Please select one</option>
         <option>A</option>
@@ -41,7 +45,7 @@
       </select>
       <span>Selected: {{ selected }}</span></div>
     <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-indigo-500">  
-      <h2>Multi Select</h2>
+      <h2 class="text-2xl font-semibold">Multi Select</h2>
       <select v-model="multiSelected" multiple style="width:100px">
         <option>A</option>
         <option>B</option>
@@ -55,6 +59,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Input } from '@/components/ui/input';
 
 const text = ref<string>('Edit me')
 const checked = ref<boolean>(true)
