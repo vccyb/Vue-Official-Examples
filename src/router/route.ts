@@ -26,6 +26,11 @@ const routes: RouteRecordRaw[] = [
     component: () =>
       import("../components/vueExample/ConditionalsAndLoops.vue"),
   },
+  {
+    path: "/basic-5",
+    name: "FormBindings",
+    component: () => import("../components/vueExample/FormBindings.vue"),
+  },
 ];
 
 export default routes;
