@@ -1,18 +1,18 @@
 
 <template>
   <div class="parent flex flex-col gap-4 justify-center items-center h-[100%] w-[100%] p-4" >
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Text Input</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2 top-2">Text Input</h2>
       <Input v-model="text" class="border-2 w-[80%]"/> {{ text }}
       </div>
 
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-y-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Checkbox</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-y-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2 top-2">Checkbox</h2>
       <input type="checkbox" id="checkbox" v-model="checked">
       <label for="checkbox">Checked: {{ checked }}</label>
     </div>
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Multi Checkbox</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-b-0 border-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2 top-2">Multi Checkbox</h2>
       <div class="flex">
         <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
         <label for="jack">Jack</label>
@@ -23,8 +23,8 @@
       </div>
       <p>Checked names: <pre>{{ checkedNames }}</pre></p>
     </div>
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Radio</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2  top-2">Radio</h2>
       <div class="flex">
         <input class="ml-2" type="radio" id="one" value="One" v-model="picked">
         <label for="one">One</label>
@@ -35,8 +35,8 @@
       <br>
       <span>Picked: {{ picked }}</span>
     </div>
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-y-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Select</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-y-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2 top-2">Select</h2>
       <select v-model="selected">
         <option disabled value="">Please select one</option>
         <option>A</option>
@@ -44,8 +44,8 @@
         <option>C</option>
       </select>
       <span>Selected: {{ selected }}</span></div>
-    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-indigo-500">  
-      <h2 class="text-2xl font-semibold">Multi Select</h2>
+    <div class="flex justify-center items-center flex-col w-[100%] h-[100%] border-dashed border-2 border-gray-800 relative">  
+      <h2 class="text-2xl font-semibold absolute left-2 top-2">Multi Select</h2>
       <select v-model="multiSelected" multiple style="width:100px">
         <option>A</option>
         <option>B</option>

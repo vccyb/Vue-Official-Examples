@@ -12,6 +12,7 @@
           v-for="item of basicData"
           variant="link"
           class="w-[100%] h-[30px]"
+          :class="activeMenuCss(item)"
           @click="handleClick(item)"
           :key="item.name"
           >{{ item.name }}</Button
@@ -26,6 +27,7 @@
         v-for="item of practicalData"
         variant="link"
         class="w-[100%] h-[30px]"
+        :class="activeMenuCss(item)"
         @click="handleClick(item)"
         :key="item.name"
         >{{ item.name }}</Button
@@ -39,6 +41,7 @@
         v-for="item of guiData"
         variant="link"
         class="w-[100%] h-[30px]"
+        :class="activeMenuCss(item)"
         @click="handleClick(item)"
         :key="item.name"
         >{{ item.name }}</Button
@@ -50,7 +53,7 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
 
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 type Category = "Basic" | "Practical" | "7 GUIs";
 
@@ -93,8 +96,17 @@ const practicalData = data.filter((item) => item.type === "Practical");
 const guiData = data.filter((item) => item.type === "7 GUIs");
 
 const router = useRouter();
+const route = useRoute();
 const handleClick = (menu: Menu) => {
   router.push(menu.path);
+};
+
+console.log(route.path);
+
+const activeMenuCss = (menu: Menu) => {
+  if (menu.path === route.path) {
+    return "bg-gray-200 text-gray-900";
+  }
 };
 </script>
 

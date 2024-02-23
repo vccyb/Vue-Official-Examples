@@ -6,7 +6,9 @@
     <div class="flex flex-col">
       <TodoItem v-for="item of groceryList" :todo="item" :key="item.id" />
     </div>
-    <div class="text-3xl font-semibold absolute right-28 bottom-12">
+    <div
+      class="text-3xl font-semibold absolute right-28 bottom-12 hover:scale-110 transition-all cursor-pointer hover:underline"
+    >
       Count: {{ groceryList.length }}
     </div>
   </div>

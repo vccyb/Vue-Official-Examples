@@ -13,14 +13,15 @@
       @click="toggleRed"
       :class="{ red: isRed }"
     >
-      This should be red... but click me to toggle it.
+      🚀 This should be red... but click me to toggle it.
     </p>
     <p
       class="text-2xl mt-2 cursor-pointer"
       @click="toggleColor"
       :style="{ color }"
     >
-      This should be green, and should toggle between green and blue on click.
+      🧑‍🚀 This should be green, and should toggle between green and blue on
+      click.
     </p>
   </div>
 </template>
