@@ -27,7 +27,7 @@ interface FormState {
   cardNum: string;
   checkNum: boolean;
   selectVal: string;
-  selectVal2: [];
+  selectVal2: string;
   inputVal: number;
 }
 
@@ -37,7 +37,7 @@ const form = ref<FormState>({
   cardNum: "",
   checkNum: false,
   selectVal: "",
-  selectVal2: [],
+  selectVal2: "",
   inputVal: 0,
 });
 
@@ -160,7 +160,7 @@ function handleChange(value: boolean) {
             </div>
             <div class="grid gap-2">
               <Label for="year">Year</Label>
-              <Select v-model="form.selectVal2" multiple>
+              <Select v-model="form.selectVal2">
                 <SelectTrigger id="year">
                   <SelectValue placeholder="Year" />
                 </SelectTrigger>
