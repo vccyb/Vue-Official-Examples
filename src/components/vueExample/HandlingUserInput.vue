@@ -6,8 +6,12 @@
       {{ message }}
     </h1>
     <div class="flex gap-4">
-      <Button @click="reverseMessage">Reverse Message</Button>
-      <Button @click="message += '!'">Append "!"</Button>
+      <Button class="active:scale-95 transition" @click="reverseMessage"
+        >Reverse Message</Button
+      >
+      <Button class="active:scale-95 transition" @click="message += '!'"
+        >Append "!"</Button
+      >
 
       <a href="https://vuejs.org" @click.prevent="notify">
         <Button variant="link"> A link with e.preventDefault() </Button>

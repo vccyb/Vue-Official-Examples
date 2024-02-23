@@ -2,21 +2,23 @@
   <div
     class="flex flex-col gap-4 justify-center items-center h-[100%] w-[100%]"
   >
-    <p class="text-2xl cursor-pointer hover:underline">
+    <p
+      class="text-2xl cursor-pointer hover:underline hover:scale-110 transition-all duration-300 ease-in-out"
+    >
       <span :title="message">
         Hover your mouse over me for a few seconds to see my dynamically bound
         title!
       </span>
     </p>
     <p
-      class="text-2xl mt-2 cursor-pointer hover:underline"
+      class="text-2xl mt-2 cursor-pointer hover:underline hover:scale-110 transition-all duration-300 ease-in-out"
       @click="toggleRed"
       :class="{ red: isRed }"
     >
       🚀 This should be red... but click me to toggle it.
     </p>
     <p
-      class="text-2xl mt-2 cursor-pointer hover:underline"
+      class="text-2xl mt-2 cursor-pointer hover:underline hover:scale-110 transition-all duration-300 ease-in-out"
       @click="toggleColor"
       :style="{ color }"
     >
