@@ -36,6 +36,11 @@ const routes: RouteRecordRaw[] = [
     name: "SimpleComponent",
     component: () => import("../components/vueExample/SimpleComponent.vue"),
   },
+  {
+    path: "/practical-1",
+    name: "MarkdownEditor",
+    component: () => import("../components/vueExample/MarkdownEditor.vue"),
+  },
 ];
 
 export default routes;
