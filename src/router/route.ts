@@ -41,6 +41,11 @@ const routes: RouteRecordRaw[] = [
     name: "MarkdownEditor",
     component: () => import("../components/vueExample/MarkdownEditor.vue"),
   },
+  {
+    path: "/practical-2",
+    name: "FetchingData",
+    component: () => import("../components/vueExample/FetchingData.vue"),
+  },
 ];
 
 export default routes;
