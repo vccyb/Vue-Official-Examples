@@ -4,7 +4,15 @@
       class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center"
     >
       Vue Official Example
-      <span class="text-xl font-light">author: vccyb</span>
+      <span class="text-xl font-light">
+        <a
+          href="https://github.com/vccyb"
+          target="_blank"
+          class="hover:underline hover:text-[#42b883] hover:scale-115 transition-all duration-300 ease-in-out"
+        >
+          author: vccyb</a
+        ></span
+      >
     </h1>
 
     <div
