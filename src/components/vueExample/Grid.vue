@@ -87,7 +87,7 @@ const columns = [
         "onUpdate:checked": (value) => table.toggleAllPageRowsSelected(!!value),
         ariaLabel: "Select all",
       }),
-    cell: ({ row, column }) => {
+    cell: ({ row }) => {
       return h(Checkbox, {
         checked: row.getIsSelected(),
         "onUpdate:checked": (value) => row.toggleSelected(!!value),
