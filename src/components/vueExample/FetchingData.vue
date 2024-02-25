@@ -36,30 +36,38 @@
       >
     </div>
     <div class="pt-4 w-[80%]">
-      <ul class="flex flex-col gap-4">
-        <li
-          class="min-h-[80px] p-4 border-dotted border-2 border-gray-300 flex justify-center items-center hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out"
-          v-for="{ html_url, sha, author, commit } in commits"
+      <ul class="">
+        <div v-if="commits" class="flex flex-col gap-4">
+          <li
+            class="min-h-[80px] p-4 border-dotted border-2 border-gray-300 flex justify-center items-center hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out"
+            v-for="{ html_url, sha, author, commit } in commits"
+          >
+            <div class="flex-1">
+              <a
+                class="text-[#42b883] text-lg font-bold hover:underline"
+                :href="html_url"
+                target="_blank"
+                >{{ sha.slice(0, 7) }}</a
+              >
+              - <span class="message">{{ truncate(commit.message) }}</span>
+            </div>
+            <div class="w-[200px]">
+              by
+              <span class="text-[#42b883] text-lg font-bold hover:underline">
+                <a :href="author.html_url" target="_blank">{{
+                  commit.author.name
+                }}</a>
+              </span>
+              at <span class="date">{{ formatDate(commit.author.date) }}</span>
+            </div>
+          </li>
+        </div>
+        <div
+          v-else
+          class="w-[100%] h-[100%] flex justify-center text-6xl font-bold text-gray-800"
         >
-          <div class="flex-1">
-            <a
-              class="text-[#42b883] text-lg font-bold hover:underline"
-              :href="html_url"
-              target="_blank"
-              >{{ sha.slice(0, 7) }}</a
-            >
-            - <span class="message">{{ truncate(commit.message) }}</span>
-          </div>
-          <div class="w-[200px]">
-            by
-            <span class="text-[#42b883] text-lg font-bold hover:underline">
-              <a :href="author.html_url" target="_blank">{{
-                commit.author.name
-              }}</a>
-            </span>
-            at <span class="date">{{ formatDate(commit.author.date) }}</span>
-          </div>
-        </li>
+          Loading ......
+        </div>
       </ul>
     </div>
   </div>
@@ -85,7 +93,9 @@ const commits = ref<any>(null);
 
 watchEffect(async () => {
   const url = `${API_URL}${currentBranch.value}`;
-  commits.value = await (await fetch(url)).json();
+  setTimeout(async () => {
+    commits.value = await (await fetch(url)).json();
+  }, 2000);
 });
 
 function truncate(v: any) {
