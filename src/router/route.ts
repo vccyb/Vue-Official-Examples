@@ -46,6 +46,11 @@ const routes: RouteRecordRaw[] = [
     name: "FetchingData",
     component: () => import("../components/vueExample/FetchingData.vue"),
   },
+  {
+    path: "/practical-3",
+    name: "Grid",
+    component: () => import("../components/vueExample/Grid.vue"),
+  },
 ];
 
 export default routes;

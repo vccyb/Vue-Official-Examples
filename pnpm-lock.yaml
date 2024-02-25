@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@tanstack/vue-table':
+    specifier: ^8.12.0
+    version: 8.12.0(vue@3.4.19)
   '@vueuse/core':
     specifier: ^10.8.0
     version: 10.8.0(vue@3.4.19)
@@ -505,6 +508,21 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@tanstack/table-core@8.12.0:
+    resolution: {integrity: sha512-cq/ylWVrOwixmwNXQjgZaQw1Izf7+nPxjczum7paAnMtwPg1S2qRAJU+Jb8rEBUWm69voC/zcChmePlk2hc6ug==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/vue-table@8.12.0(vue@3.4.19):
+    resolution: {integrity: sha512-iQ44iv6EROmL3wrM9k1Z+cLXvKM1StgT3hY/ewRRTTVBitekmb6OnXq+/2CiEdkqTkQTlpIZ1i/VZpYqGINuXg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.2.33
+    dependencies:
+      '@tanstack/table-core': 8.12.0
+      vue: 3.4.19(typescript@5.3.3)
+    dev: false
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
