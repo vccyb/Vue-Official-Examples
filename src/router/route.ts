@@ -51,6 +51,11 @@ const routes: RouteRecordRaw[] = [
     name: "Grid",
     component: () => import("../components/vueExample/Grid.vue"),
   },
+  {
+    path: "/practical-4",
+    name: "Tree",
+    component: () => import("../components/vueExample/TreeView.vue"),
+  },
 ];
 
 export default routes;
