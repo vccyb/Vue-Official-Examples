@@ -49,7 +49,7 @@
       <ul class="ml-8" v-show="isOpen" v-if="isFolder">
         <TreeItem
           class="item"
-          v-for="model in model.children"
+          v-for="model in childArr"
           :model="model"
         ></TreeItem>
         <li class="add" @click="addChild">+</li>
@@ -91,6 +91,13 @@ function changeType() {
     isOpen.value = true;
   }
 }
+
+const childArr = computed(() => {
+  if (props.model.children && props.model.children.length) {
+    return props.model.children;
+  }
+  return [];
+});
 
 function addChild() {
   props.model.children &&
