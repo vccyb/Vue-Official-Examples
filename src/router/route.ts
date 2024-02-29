@@ -56,6 +56,11 @@ const routes: RouteRecordRaw[] = [
     name: "Tree",
     component: () => import("../components/vueExample/TreeView.vue"),
   },
+  {
+    path: "/practical-5",
+    name: "svg",
+    component: () => import("../components/vueExample/SvgGraph.vue"),
+  },
 ];
 
 export default routes;
