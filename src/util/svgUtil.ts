@@ -1,4 +1,4 @@
-export function valueToPoint(value, index, total) {
+export function valueToPoint(value: number, index: number, total: number) {
   const x = 0;
   const y = -value * 0.8;
   const angle = ((Math.PI * 2) / total) * index;

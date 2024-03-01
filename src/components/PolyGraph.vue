@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <g>
-      <polygon :points="points"></polygon>
-      <circle cx="100" cy="100" r="80"></circle>
-      <axis-label
-        v-for="(stat, index) in stats"
-        :stat="stat"
-        :index="index"
-        :total="stat.length"
-      ></axis-label>
-    </g>
-  </div>
+  <g>
+    <polygon :points="points"></polygon>
+    <circle cx="100" cy="100" r="80"></circle>
+    <axis-label
+      v-for="(stat, index) in stats"
+      :stat="stat"
+      :index="index"
+      :total="stats.length"
+    ></axis-label>
+  </g>
 </template>
 
 <script setup lang="ts">
@@ -19,10 +17,10 @@ import AxisLabel from "./AxisLabel.vue";
 
 import { valueToPoint } from "../util/svgUtil";
 
-type Stats = {
+interface Stats {
   label: string;
   value: number;
-};
+}
 
 const props = defineProps<{
   stats: Stats[];
