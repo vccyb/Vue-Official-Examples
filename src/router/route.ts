@@ -61,6 +61,11 @@ const routes: RouteRecordRaw[] = [
     name: "svg",
     component: () => import("../components/vueExample/SvgGraph.vue"),
   },
+  {
+    path: "/practical-6",
+    name: "modal",
+    component: () => import("../components/vueExample/ModalView.vue"),
+  },
 ];
 
 export default routes;
