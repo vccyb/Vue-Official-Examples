@@ -66,6 +66,11 @@ const routes: RouteRecordRaw[] = [
     name: "modal",
     component: () => import("../components/vueExample/ModalView.vue"),
   },
+  {
+    path: "/practical-7",
+    name: "List",
+    component: () => import("../components/vueExample/ListView.vue"),
+  },
 ];
 
 export default routes;
