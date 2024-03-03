@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import Button from "./ui/button/Button.vue";
-const props = defineProps<{
+defineProps<{
   show: boolean;
 }>();
 </script>
