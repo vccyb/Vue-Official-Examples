@@ -71,6 +71,11 @@ const routes: RouteRecordRaw[] = [
     name: "List",
     component: () => import("../components/vueExample/ListView.vue"),
   },
+  {
+    path: "/gui-1",
+    name: "Counter",
+    component: () => import("../components/vueExample/Counter.vue"),
+  },
 ];
 
 export default routes;
