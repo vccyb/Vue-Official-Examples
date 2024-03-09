@@ -44,6 +44,8 @@ let lastTime: DOMHighResTimeStamp;
 let handle: number;
 
 const update = () => {
+  console.log("elapsed", elapsed.value);
+  console.log("lastTime", lastTime);
   elapsed.value = performance.now() - lastTime;
   if (elapsed.value >= duration.value) {
     cancelAnimationFrame(handle);
