@@ -5,7 +5,7 @@
     <div class="text-4xl font-semibold flex justify-center items-center gap-2">
       <svg
         xmlns="http://www.w3.org/2000/svg "
-        class="icon icon-tabler icon-tabler-bookmarks text-2xl scale-125 text-green-500"
+        class="icon icon-tabler icon-tabler-bookmarks text-2xl scale-125"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -19,7 +19,7 @@
         <path d="M15 10v11l-5 -3l-5 3v-11a3 3 0 0 1 3 -3h4a3 3 0 0 1 3 3z" />
         <path d="M11 3h5a3 3 0 0 1 3 3v11" />
       </svg>
-      <div class="text-green-600">Please book your ticket</div>
+      <div class="">Please book your ticket</div>
     </div>
     <div class="flex gap-4 w-[50%] flex-start">
       <Select v-model="flightType">
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div
-      class="text-4xl rounded-md p-4 font-bold text-center"
+      class="text-2xl rounded-md p-4 font-bold text-center"
       v-if="flightType === 'return flight'"
     >
       You have booked a
@@ -69,7 +69,7 @@
       >
     </div>
     <div
-      class="text-4xl rounded-md p-4 font-bold text-center"
+      class="text-2xl rounded-md p-4 font-bold text-center"
       v-if="flightType === 'one-way flight'"
     >
       You have booked a
