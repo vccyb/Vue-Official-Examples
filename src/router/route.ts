@@ -91,6 +91,11 @@ const routes: RouteRecordRaw[] = [
     name: "Timer",
     component: () => import("../components/vueExample/Timer.vue"),
   },
+  {
+    path: "/gui-5",
+    name: "CRUD",
+    component: () => import("../components/vueExample/CRUD.vue"),
+  },
 ];
 
 export default routes;
