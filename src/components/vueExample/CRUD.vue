@@ -6,7 +6,7 @@
     <div class="w-[70%] flex justify-start">
       <input
         type="text"
-        class="border-2 w-[40%] mb-4 indent-1"
+        class="border-2 w-[40%] mb-4 indent-1 rounded-sm"
         placeholder="Filter prefix"
         v-model="prefix"
       />
@@ -23,7 +23,7 @@
             <span class="w-[50px]"> Name: </span>
             <input
               type="text"
-              class="border-2 w-[140px] indent-1"
+              class="border-2 w-[140px] indent-1 rounded-sm"
               v-model="first"
             />
           </label>
@@ -33,7 +33,7 @@
             <span class="w-[50px]"> Surname: </span>
             <input
               type="text"
-              class="border-2 w-[140px] indent-1"
+              class="border-2 w-[140px] indent-1 rounded-sm"
               v-model="last"
             />
           </label>

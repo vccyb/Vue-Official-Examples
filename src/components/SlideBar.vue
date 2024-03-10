@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1
-      class="text-center flex justify-center items-center py-4 border-b-2 border-gray-500 font-bold"
+      class="text-center flex justify-center items-center py-4 border-b-2 border-gray-500 font-bold title"
     >
       vue 官方的例子
     </h1>
@@ -110,4 +110,11 @@ const activeMenuCss = (menu: Menu) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.title {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+</style>
