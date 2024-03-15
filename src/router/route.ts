@@ -101,6 +101,11 @@ const routes: RouteRecordRaw[] = [
     name: "Circle",
     component: () => import("../components/vueExample/CircleDrawer.vue"),
   },
+  {
+    path: "/gui-7",
+    name: "Cell",
+    component: () => import("../components/vueExample/Cells.vue"),
+  },
 ];
 
 export default routes;
