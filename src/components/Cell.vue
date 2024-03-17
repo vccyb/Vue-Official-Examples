@@ -6,7 +6,6 @@
       class="w-[100%]"
       @change="update"
       @blur="update"
-      @vue:mounted="({ el }) => el.focus()"
     />
     <span v-else>{{ evalCell(cells[c][r]) }}</span>
   </div>

@@ -4,7 +4,9 @@ const COLS = 5;
 const ROWS = 20;
 
 export const cells = reactive(
+  // @ts-ignore
   Array.from(Array(COLS).keys()).map((i) =>
+    //@ts-ignore
     Array.from(Array(ROWS).keys()).map((i) => "")
   )
 );

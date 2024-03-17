@@ -75,14 +75,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watchEffect } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { computed, ref, watchEffect } from "vue";
+import { useRouter } from "vue-router";
 
 const STORAGE_KEY = "vue-todomvc";
 const filters = {
-  all: (todos) => todos,
-  active: (todos) => todos.filter((todo) => !todo.completed),
-  completed: (todos) => todos.filter((todo) => todo.completed),
+  all: (todos: any[]) => todos,
+  active: (todos: any[]) => todos.filter((todo) => !todo.completed),
+  completed: (todos: any[]) => todos.filter((todo) => todo.completed),
 };
 
 // state
@@ -92,17 +92,18 @@ watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(todos.value));
 });
 const visibility = ref("all");
+//@ts-ignore
 const filteredTodos = computed(() => filters[visibility.value](todos.value));
 
 const remaining = computed(() => {
   return filters.active(todos.value).length;
 });
 
-function toggleAll(e) {
-  todos.value.forEach((todo) => (todo.completed = e.target.checked));
+function toggleAll(e: any) {
+  todos.value.forEach((todo: any) => (todo.completed = e.target.checked));
 }
 
-function addTodo(e) {
+function addTodo(e: any) {
   const value = e.target.value.trim();
   if (value) {
     todos.value.push({
@@ -114,7 +115,7 @@ function addTodo(e) {
   }
 }
 
-function removeTodo(todo) {
+function removeTodo(todo: any) {
   todos.value.splice(todos.value.indexOf(todo), 1);
 }
 
@@ -127,7 +128,7 @@ const router = useRouter();
 
 router.push({ query: { type: "all" } });
 
-function changeV(query) {
+function changeV(query: string) {
   // 添加一个type=query的query参数到路由上
   router.push({ query: { type: query } });
   visibility.value = query;
@@ -136,29 +137,29 @@ function changeV(query) {
 // handle one todo update
 let editedTodo = ref(null);
 
-let beforeEditCache = "";
+// let beforeEditCache = "";
 
-function editTodo(todo) {
-  beforeEditCache = todo.title;
-  editedTodo.value = todo;
-}
+// function editTodo(todo: any) {
+//   beforeEditCache = todo.title;
+//   editedTodo.value = todo;
+// }
 
-function cancelEdit(todo) {
-  editedTodo.value = null;
-  todo.title = beforeEditCache;
-}
+// function cancelEdit(todo: any) {
+//   editedTodo.value = null;
+//   todo.title = beforeEditCache;
+// }
 
-function doneEdit(todo) {
-  if (editedTodo.value) {
-    editedTodo.value = null;
-    todo.title = todo.title.trim();
-    if (!todo.title) removeTodo(todo);
-  }
-}
+// function doneEdit(todo: any) {
+//   if (editedTodo.value) {
+//     editedTodo.value = null;
+//     todo.title = todo.title.trim();
+//     if (!todo.title) removeTodo(todo);
+//   }
+// }
 
-function showEdit(todo) {
-  console.log(todo.id === editedTodo.value?.id);
-}
+// function showEdit(todo: any) {
+//   console.log(todo.id === editedTodo.value?.id);
+// }
 </script>
 
 <style scoped></style>
@@ -519,3 +520,7 @@ html .clear-completed:active {
   outline: 0;
 }
 </style>
+: any: any[]: { completed: any; }: any[]: { completed: any; }: { target: {
+checked: any; }; }: { completed: any; }: { target: { value: string; }; }: any:
+string: { title: string; } | null: { title: string; }: { title: string; }: { id:
+any; }

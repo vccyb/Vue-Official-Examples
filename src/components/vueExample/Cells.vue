@@ -10,7 +10,7 @@
       <tbody>
         <tr v-for="i in cells[0].length">
           <th>{{ i - 1 }}</th>
-          <td v-for="(c, j) in cols">
+          <td v-for="(_, j) in cols">
             <Cell :r="i - 1" :c="j" />
           </td>
         </tr>
