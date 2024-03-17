@@ -1,5 +1,7 @@
 <template>
-  <div class="w-[100%] h-[100%] flex flex-col justify-center items-center">
+  <div
+    class="w-[100%] h-[100%] flex flex-col justify-center items-center overflow-y-auto"
+  >
     <section class="todoapp">
       <header class="header">
         <h1>todos</h1>
@@ -7,31 +9,163 @@
           class="new-todo"
           placeholder="What needs to be done?"
           autofocus
+          @keyup.enter="addTodo"
         />
       </header>
       <section class="main">
-        <input class="toggle-all" type="checkbox" id="toggle-all" />
+        <input
+          class="toggle-all"
+          type="checkbox"
+          id="toggle-all"
+          @change="toggleAll"
+        />
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-          <li>
+          <li
+            v-for="todo in filteredTodos"
+            class="todo"
+            :key="todo.id"
+            :class="{ complete: todo.completed, editing: todo === editedTodo }"
+          >
             <div class="view">
-              <input class="toggle" type="checkbox" />
-              <label for="">123</label>
-              <button class="destroy"></button>
+              <input class="toggle" type="checkbox" v-model="todo.completed" />
+              <label for="">{{ todo.title }}</label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
             </div>
           </li>
         </ul>
       </section>
+      <footer class="footer" v-show="todos.length">
+        <span class="todo-count">
+          <strong>{{ remaining }}</strong>
+          <span>{{ remaining === 1 ? " item" : " items" }} left</span>
+        </span>
+        <ul class="filters">
+          <li>
+            <a
+              :class="{ selected: visibility === 'all' }"
+              class="cursor-pointer"
+              @click="changeV('all')"
+              >All</a
+            >
+            <a
+              :class="{ selected: visibility === 'active' }"
+              class="cursor-pointer"
+              @click="changeV('active')"
+              >Active</a
+            >
+            <a
+              :class="{ selected: visibility === 'completed' }"
+              class="cursor-pointer"
+              @click="changeV('completed')"
+              >Completed</a
+            >
+          </li>
+        </ul>
+        <button
+          class="clear-completed"
+          @click="removeCompleted"
+          v-show="todos.length > remaining"
+        >
+          Clear completed
+        </button>
+      </footer>
     </section>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, computed, watchEffect } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+const STORAGE_KEY = "vue-todomvc";
+const filters = {
+  all: (todos) => todos,
+  active: (todos) => todos.filter((todo) => !todo.completed),
+  completed: (todos) => todos.filter((todo) => todo.completed),
+};
+
+// state
+const todos = ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+
+watchEffect(() => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos.value));
+});
+const visibility = ref("all");
+const filteredTodos = computed(() => filters[visibility.value](todos.value));
+
+const remaining = computed(() => {
+  return filters.active(todos.value).length;
+});
+
+function toggleAll(e) {
+  todos.value.forEach((todo) => (todo.completed = e.target.checked));
+}
+
+function addTodo(e) {
+  const value = e.target.value.trim();
+  if (value) {
+    todos.value.push({
+      id: Date.now(),
+      title: value,
+      completed: false,
+    });
+    e.target.value = "";
+  }
+}
+
+function removeTodo(todo) {
+  todos.value.splice(todos.value.indexOf(todo), 1);
+}
+
+function removeCompleted() {
+  todos.value = filters.active(todos.value);
+}
+
+// handle routing
+const router = useRouter();
+
+router.push({ query: { type: "all" } });
+
+function changeV(query) {
+  // 添加一个type=query的query参数到路由上
+  router.push({ query: { type: query } });
+  visibility.value = query;
+}
+
+// handle one todo update
+let editedTodo = ref(null);
+
+let beforeEditCache = "";
+
+function editTodo(todo) {
+  beforeEditCache = todo.title;
+  editedTodo.value = todo;
+}
+
+function cancelEdit(todo) {
+  editedTodo.value = null;
+  todo.title = beforeEditCache;
+}
+
+function doneEdit(todo) {
+  if (editedTodo.value) {
+    editedTodo.value = null;
+    todo.title = todo.title.trim();
+    if (!todo.title) removeTodo(todo);
+  }
+}
+
+function showEdit(todo) {
+  console.log(todo.id === editedTodo.value?.id);
+}
+</script>
 
 <style scoped></style>
 
 <style scoped>
 .todoapp {
+  min-width: 600px;
   background: #fff;
   margin: 130px 0 40px 0;
   position: relative;
@@ -255,7 +389,10 @@
 }
 
 .footer {
-  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 15px;
   height: 20px;
   text-align: center;
   font-size: 15px;
@@ -317,7 +454,8 @@
 .clear-completed,
 html .clear-completed:active {
   float: right;
-  position: relative;
+  position: absolute;
+  right: 16px;
   line-height: 19px;
   text-decoration: none;
   cursor: pointer;
